@@ -179,5 +179,6 @@ const speakWord = useCallback((wordText: string) => {
     categories,
     nextWord,
     switchCategory,
+    speakWord,
   }
 }

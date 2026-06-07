@@ -12,6 +12,7 @@ function App() {
     categories,
     nextWord,
     switchCategory,
+    speakWord,
   } = useWordCard()
 
   const [animClass, setAnimClass] = useState("entering")
@@ -26,15 +27,8 @@ function App() {
   }, [nextWord])
 
   const handleSpeak = useCallback(() => {
-    if ("speechSynthesis" in window) {
-      window.speechSynthesis.cancel()
-      const utterance = new SpeechSynthesisUtterance(currentWord.word)
-      utterance.lang = "en-US"
-      utterance.rate = 0.85
-      utterance.pitch = 1
-      window.speechSynthesis.speak(utterance)
-    }
-  }, [currentWord.word])
+    speakWord(currentWord.word)
+  }, [speakWord, currentWord.word])
 
   const handleCategorySwitch = useCallback(
     (categoryId: string) => {

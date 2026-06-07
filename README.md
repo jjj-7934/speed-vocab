@@ -1,73 +1,75 @@
-# React + TypeScript + Vite
+# 速过单词 🃏
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **键盘翻卡背单词工具** — 每按一次 `Space`，刷新一词，自动朗读。
 
-Currently, two official plugins are available:
+![preview](https://img.shields.io/badge/react-19-blue)
+![preview](https://img.shields.io/badge/TypeScript-5.9-brightgreen)
+![preview](https://img.shields.io/badge/license-MIT-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ 功能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **单词卡片** — 展示单词、音标、词性、中文释义
+- **自动朗读** — 基于 Web Speech API，优先使用神经网络自然语音
+- **键盘翻卡** — `Space` / `→` / `↓` 一键切换下一词
+- **三级分类** — 基础(初中) / 四级 / 六级，共 10,000+ 唯一单词
+- **音标懒加载** — 首次展示时自动从 Dictionary API 获取音标并缓存
+- **学习统计** — 实时显示累计翻卡数、已学进度、词库总词数
+- **响应式设计** — 桌面和移动端均可流畅使用
 
-## Expanding the ESLint configuration
+## ⌨️ 快捷键
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| 按键 | 功能 |
+|------|------|
+| `Space` / `→` / `↓` | 下一张单词卡 |
+| `1` | 基础词库 |
+| `2` | 四级词库 |
+| `3` | 六级词库 |
+| 点击朗读按钮 | 手动朗读当前单词 |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 快速开始
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# 克隆仓库
+git clone https://github.com/jjj-7934/speed-vocab.git
+cd speed-vocab
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 安装依赖
+npm install
+
+# 本地开发
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览构建结果
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ 技术栈
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| 技术 | 用途 |
+|------|------|
+| [React 19](https://react.dev/) | UI 框架 |
+| [TypeScript](https://www.typescriptlang.org/) | 类型安全 |
+| [Vite](https://vite.dev/) | 构建工具 |
+| [Tailwind CSS](https://tailwindcss.com/) | 样式框架 |
+| [shadcn/ui](https://ui.shadcn.com/) | UI 组件库 |
+| [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) | 语音朗读 |
+| [Free Dictionary API](https://api.dictionaryapi.dev/) | 音标数据 |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📦 数据来源
+
+词汇数据来自 [KyleBing/english-vocabulary](https://github.com/KyleBing/english-vocabulary) 开源词库，经过去重清洗后使用。
+
+| 分类 | 单词数 | 来源 |
+|------|:-----:|------|
+| 🟢 基础 | 1,987 | 初中词汇 |
+| 🔵 四级 | 4,544 | CET4 考纲 |
+| 🟣 六级 | 3,991 | CET6 考纲 |
+
+## 📄 许可证
+
+[MIT](LICENSE)
