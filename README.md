@@ -2,6 +2,12 @@
 
 > **键盘翻卡背单词工具** — 每按一次 `Space`，刷新一词，自动朗读。
 
+<p align="center">
+  <a href="https://ab6eb0537ad6451cbc01cd574ebfbe9a.app.codebuddy.work">
+    <img src="https://img.shields.io/badge/🚀_在线体验-Click_Here-6366f1?style=for-the-badge" alt="在线体验" />
+  </a>
+</p>
+
 ![preview](https://img.shields.io/badge/react-19-blue)
 ![preview](https://img.shields.io/badge/TypeScript-5.9-brightgreen)
 ![preview](https://img.shields.io/badge/license-MIT-green)
